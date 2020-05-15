@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+  <div class="container">
+
+      <h1 class="mb-4">Nos produits...</h1>
+      <div class="row">
+      {% for product in products %}
+        <div class="col-md-4">
+          <div class="card border-secondary mb-3">
+            <div class="card-body">
+              <div class="card-title">
+                <h2>{{ product.title }}</h2>
+                <hr>
+                <div class="card-text">
+                  <img src="{{ product.image }}" alt="Image du produit" style="height: 200px; width: 100%; display: block">
+                  <p class="card-text">{{ product.description | raw }}</p>
+                  <p class="text-center mb-0"><b>Prix : {{ product.price }} &euro;</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+{% endblock %}
